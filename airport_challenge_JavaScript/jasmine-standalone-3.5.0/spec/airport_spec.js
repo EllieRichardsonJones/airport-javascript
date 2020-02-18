@@ -6,11 +6,19 @@ describe('Airport', function () {
     plane = new Plane();
   });
 
-  describe('knows when a', function() {
-    it('plane lands', function(){
+  describe('knows when ', function() {
+    it('a plane lands', function(){
       expect(airport.land(plane)).toEqual(plane);
     });
 
+    it('a plane takes off', function() {
+        expect(airport.takeOff(plane)).toEqual(plane);
+    });
+
+    it('is full', function() {
+
+        expect(function(){airport.store(plane);}).toThrow(new Error("Hanger full"));
+    });
   });
 
 });
